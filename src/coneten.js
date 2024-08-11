@@ -11,6 +11,7 @@ function Contetn({ Data, Saving }) {
               photo={el.photo}
               price={el.price}
               cont={el.magac}
+              star={el.star}
               Saving={Saving}
             />
           ))}

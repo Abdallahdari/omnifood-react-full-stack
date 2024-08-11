@@ -1,12 +1,13 @@
 import React from "react";
 
-function Meals({ photo, price, cont, Saving }) {
+function Meals({ photo, price, cont, Saving, star }) {
   function Handle(e) {
     e.preventDefault();
     const NewItem = {
       photo,
       price,
       content: cont,
+      star,
     };
     Saving(NewItem);
   }
@@ -19,6 +20,7 @@ function Meals({ photo, price, cont, Saving }) {
           <div className="flex flex-col gap-2">
             <p className="text-2xl">{cont}</p>
             <p className="text-gray-400">${price}</p>
+            <p className="text-gray-400">{star}</p>
           </div>
           <button
             onClick={Handle}
