@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import Navber from "./Navber";
+import Cart from "./cart";
+import Header from "./header";
+import Data from "./data";
+import Contetn from "./coneten";
+import { useState } from "react";
 function App() {
+  const [items, setItems] = useState([]);
+  function SavingForCard(item) {
+    setItems((previus) => [...previus, item]);
+  }
+  function Ondelete(id) {
+    setItems((item) => item.filter((item, index) => index !== id));
+  }
+  function ClearAll() {
+    setItems([]);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navber />
+
+      <Header />
+      <Contetn Saving={SavingForCard} Data={Data} />
+      <Cart ClearAll={ClearAll} Ondelete={Ondelete} items={items} />
+    </>
   );
 }
 
